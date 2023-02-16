@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Random;
 
 class Conversation {
@@ -27,52 +26,45 @@ class Conversation {
       // your -> my  
       
       String[] words = s1.split(" ");
-      ArrayList newSentence = new ArrayList <>();
+      // ArrayList newSentence = new ArrayList <>();
       Random random = new Random();
       int index = random.nextInt(replyStrings.length);
-      System.out.println(replyStrings[index]);
       
-      if (newSentence.contains("I")){
-        
+      // System.out.println(replyStrings[index]); //for canned response
+      
+      for (int w = 0; w < words.length; w++){
+        if (words[w].equals("me")){
+              words[w] = "you";
+              
+            }
+            else if (words[w].equals("am")){
+              words[w] = "are";
+              
+            }
+            else if (words[w].equals("you")){
+              words[w] = "I";
+              
+            }
+            else if (words[w].equals("my")){
+              words[w] = "your";
+              
+            }
+            else if (words[w].equals("your")){
+              words[w] = "my";
+              
+            }
+            else if (words[w].equals("I")){
+              words[w] = "you";
+            
+              
+            
       }
-
-
-      // for (int w = 0; w < words.length; w++){
-      //   if (words[w] != "I" && words[w] != "me" && words[w] != "am" && words[w] != "you" && words[w] != "my" && words[w] != "your"){
-      //     String word = words[w];
-      //     newSentence.add(words[w]);
-      //   }
-      //   else if (words[w] == "me"){
-      //     String word = words[w].replace("me", "you");
-      //     newSentence.add(word);
-      //   }
-      //   else if (words[w] == "am"){
-      //     String word = words[w].replace("am", "are");
-      //     newSentence.add(word);
-      //   }
-      //   else if (words[w] == "you"){
-      //     String word = words[w].replace("you", "I");
-      //     newSentence.add(word);
-      //   }
-      //   else if (words[w] == "my"){
-      //     String word = words[w].replace("my", "your");
-      //     newSentence.add(word);
-      //   }
-      //   else if (words[w] == "your"){
-      //     String word = words[w].replace("your", "my");
-      //     newSentence.add(word);
-      //   }
-      //   else if (words[w] == "I"){
-      //     String word = words[w].replace("I", "you");
-      //     newSentence.add(word);
     
-      // }
-      // String responseString = String.join(" ", newSentence);
-      // System.out.println(responseString);
-      
-    // }
-    System.out.println("Goodbye!");
     
   }
+  System.out.println(String.join(" ", words));
+
+}
+System.out.println("Goodbye!");
 }
 }
